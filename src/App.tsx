@@ -35,7 +35,7 @@ function App() {
       <main>
         <Hero />
         <Services onOrderClick={handleOrderClick} />
-        <Portfolio onTemplateClick={handleTemplateClick} />
+        <Portfolio onTemplateClick={handleTemplateClick} onOrderClick={handleOrderClick} />
       </main>
       <Footer />
       <OrderModal 

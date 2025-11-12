@@ -1,8 +1,10 @@
 import TemplateCard from './TemplateCard';
-import type { Template } from '../types';
+import UmkmShowcase from './UmkmShowcase';
+import type { Template, Service } from '../types';
 
 interface PortfolioProps {
   onTemplateClick: (template: Template) => void;
+  onOrderClick: (service: Service) => void;
 }
 
 const templates: Template[] = [
@@ -16,10 +18,11 @@ const templates: Template[] = [
   { id: 8, title: 'Platform Edukasi', category: 'Pendidikan', imageUrl: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/400x300/1e293b/93c5fd/png?text=Edukasi', price: 'Rp 1.3Jt' },
 ];
 
-const Portfolio = ({ onTemplateClick }: PortfolioProps) => {
+const Portfolio = ({ onTemplateClick, onOrderClick }: PortfolioProps) => {
   return (
     <section id="portfolio" className="py-20 md:py-28">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <UmkmShowcase onOrderClick={onOrderClick} />
         <div className="text-center">
           <h2 className="text-3xl font-extrabold text-white sm:text-4xl">Galeri Template Kami</h2>
           <p className="mt-4 text-lg text-slate-400">
