@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import type { Service, Template } from '../types';
 
 interface OrderModalProps {
   isOpen: boolean;
   onClose: () => void;
-  content: { title: string; type: 'service' | 'template' } | null;
+  content: Service | Template | null;
 }
 
 const OrderModal = ({ isOpen, onClose, content }: OrderModalProps) => {
@@ -18,9 +19,10 @@ const OrderModal = ({ isOpen, onClose, content }: OrderModalProps) => {
 
   useEffect(() => {
     if (content) {
+      const isTemplate = 'category' in content;
       setFormData({
         name: '',
-        websiteName: content.type === 'template' ? content.title : '',
+        websiteName: isTemplate ? content.title : '',
         contact: '',
         message: ''
       });
@@ -34,9 +36,13 @@ const OrderModal = ({ isOpen, onClose, content }: OrderModalProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!content) return;
+    
+    const isService = 'features' in content;
     console.log({
-      orderType: content?.type,
-      orderedItem: content?.title,
+      orderType: isService ? 'service' : 'template',
+      orderedItem: content.title,
+      price: content.price,
       ...formData,
     });
     alert('Terima kasih! Pesanan Anda telah kami catat. Kami akan segera menghubungi Anda.');
@@ -55,6 +61,10 @@ const OrderModal = ({ isOpen, onClose, content }: OrderModalProps) => {
   };
 
   if (!content) return null;
+
+  const isService = 'features' in content;
+  const typeText = isService ? 'paket' : 'template';
+  const isTemplate = 'category' in content;
 
   return (
     <AnimatePresence>
@@ -81,7 +91,8 @@ const OrderModal = ({ isOpen, onClose, content }: OrderModalProps) => {
             
             <h2 className="text-2xl font-bold text-white">Formulir Pemesanan</h2>
             <p className="mt-2 text-slate-400">
-              Anda memesan {content.type === 'service' ? 'paket' : 'template'}: <span className="font-semibold text-indigo-400">{content.title}</span>
+              Anda memesan {typeText}: <span className="font-semibold text-indigo-400">{content.title}</span>
+              {' '}dengan harga <span className="font-semibold text-white">{content.price}</span>.
             </p>
 
             <form onSubmit={handleSubmit} className="mt-6 space-y-4">
@@ -107,7 +118,7 @@ const OrderModal = ({ isOpen, onClose, content }: OrderModalProps) => {
                   value={formData.websiteName}
                   onChange={handleChange}
                   className="mt-1 block w-full bg-slate-900 border border-slate-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  placeholder={content.type === 'service' ? 'Contoh: Toko Kue Lezat' : ''}
+                  placeholder={!isTemplate ? 'Contoh: Toko Kue Lezat' : ''}
                 />
               </div>
               <div>

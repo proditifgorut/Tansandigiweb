@@ -9,15 +9,15 @@ import type { Service, Template } from './types';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState<{ title: string; type: 'service' | 'template' } | null>(null);
+  const [modalContent, setModalContent] = useState<Service | Template | null>(null);
 
   const handleOrderClick = (service: Service) => {
-    setModalContent({ title: service.title, type: 'service' });
+    setModalContent(service);
     setIsModalOpen(true);
   };
 
   const handleTemplateClick = (template: Template) => {
-    setModalContent({ title: template.title, type: 'template' });
+    setModalContent(template);
     setIsModalOpen(true);
   };
 

@@ -1,4 +1,4 @@
-import { Code, Layers, Rocket } from 'lucide-react';
+import { Code, Layers, Rocket, Store } from 'lucide-react';
 import ServiceCard from './ServiceCard';
 import type { Service } from '../types';
 
@@ -7,6 +7,20 @@ interface ServicesProps {
 }
 
 const services: Service[] = [
+  {
+    id: 4,
+    title: 'Paket UMKM',
+    price: 'Rp 300rb',
+    pricePeriod: 'proyek',
+    Icon: Store,
+    features: [
+      '1 Halaman Landing Page',
+      'Desain Sederhana & Bersih',
+      'Integrasi Tombol WhatsApp',
+      'Desain Mobile Friendly',
+      'Bantuan Publikasi',
+    ],
+  },
   {
     id: 1,
     title: 'Website Basic',
@@ -66,7 +80,7 @@ const Services = ({ onOrderClick }: ServicesProps) => {
             Pilih paket yang paling sesuai dengan kebutuhan dan anggaran bisnis Anda.
           </p>
         </div>
-        <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <ServiceCard key={service.id} service={service} onOrderClick={onOrderClick} />
           ))}

@@ -6,14 +6,14 @@ interface PortfolioProps {
 }
 
 const templates: Template[] = [
-  { id: 1, title: 'Startup Landing Page', category: 'Bisnis', imageUrl: 'https://i.ibb.co/Fz1JcWf/template1.png' },
-  { id: 2, title: 'Portfolio Fotografer', category: 'Kreatif', imageUrl: 'https://i.ibb.co/zVv4hYv/template2.png' },
-  { id: 3, title: 'Toko Online Modern', category: 'E-commerce', imageUrl: 'https://i.ibb.co/G0B54rS/template3.png' },
-  { id: 4, title: 'Blog Pribadi Elegan', category: 'Blog', imageUrl: 'https://i.ibb.co/YyTj2dF/template4.png' },
-  { id: 5, title: 'Website Restoran', category: 'Kuliner', imageUrl: 'https://i.ibb.co/zH0Y8vB/template5.png' },
-  { id: 6, title: 'Agensi Digital', category: 'Bisnis', imageUrl: 'https://i.ibb.co/gZ9Sg0T/template6.png' },
-  { id: 7, title: 'Aplikasi SaaS', category: 'Teknologi', imageUrl: 'https://i.ibb.co/hZJ8V4d/template7.png' },
-  { id: 8, title: 'Platform Edukasi', category: 'Pendidikan', imageUrl: 'https://i.ibb.co/L8yP6Y1/template8.png' },
+  { id: 1, title: 'Startup Landing Page', category: 'Bisnis', imageUrl: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/400x300/1e293b/93c5fd/png?text=Startup', price: 'Rp 800rb' },
+  { id: 2, title: 'Portfolio Fotografer', category: 'Kreatif', imageUrl: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/400x300/1e293b/93c5fd/png?text=Portfolio', price: 'Rp 750rb' },
+  { id: 3, title: 'Toko Online Modern', category: 'E-commerce', imageUrl: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/400x300/1e293b/93c5fd/png?text=E-commerce', price: 'Rp 1.2Jt' },
+  { id: 4, title: 'Blog Pribadi Elegan', category: 'Blog', imageUrl: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/400x300/1e293b/93c5fd/png?text=Blog', price: 'Rp 600rb' },
+  { id: 5, title: 'Website Restoran', category: 'Kuliner', imageUrl: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/400x300/1e293b/93c5fd/png?text=Restoran', price: 'Rp 900rb' },
+  { id: 6, title: 'Agensi Digital', category: 'Bisnis', imageUrl: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/400x300/1e293b/93c5fd/png?text=Agensi', price: 'Rp 850rb' },
+  { id: 7, title: 'Aplikasi SaaS', category: 'Teknologi', imageUrl: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/400x300/1e293b/93c5fd/png?text=SaaS', price: 'Rp 1.5Jt' },
+  { id: 8, title: 'Platform Edukasi', category: 'Pendidikan', imageUrl: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/400x300/1e293b/93c5fd/png?text=Edukasi', price: 'Rp 1.3Jt' },
 ];
 
 const Portfolio = ({ onTemplateClick }: PortfolioProps) => {

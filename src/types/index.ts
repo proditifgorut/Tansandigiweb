@@ -15,4 +15,5 @@ export interface Template {
   title: string;
   category: string;
   imageUrl: string;
+  price: string;
 }
